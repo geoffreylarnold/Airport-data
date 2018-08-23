@@ -69,7 +69,7 @@ ggplot() +
   geom_polygon(data= select_world, aes(long,lat, group=group), color = "black", fill="#608341", alpha = .8) +
   geom_polygon(data= us, aes(long,lat, group=group), color = "black", fill="#608341", alpha = .8) +
   geom_curve(data = locs, aes(x = org.lon, y = org.lat, xend = lon, yend = lat, color = `Flights 2018`),
-             curvature = -0.2, arrow = arrow(length = unit(0.01, "npc"))) +
+             curvature = -0.3, arrow = arrow(length = unit(0.015, "npc")), size = .65) +
   # scale_size_continuous(range = c(.1,2)) +
   scale_colour_distiller(palette = "Reds", direction = 1) +
   geom_text(data = locs, aes(x = lon, y = lat, label = `Destination Code`), size = 2.25, colour = "red", hjust = 1, vjust = 1) +
@@ -77,7 +77,5 @@ ggplot() +
   theme(axis.ticks = element_blank(), axis.text = element_blank(), panel.background = element_rect(fill = '#DAFFFF'), panel.grid.major = element_line(colour = "black"), panel.grid.minor = element_line(colour = "gray10")) +
   xlab(NULL) +
   ylab(NULL) +
-  labs(title = "Number of flights out of Pitsburgh International Airport by destination", subtitle = "Jan - Apr 2018", x = NULL, y = NULL, caption = "Sources: Flights - WPRDC.org \n Airport Locations - https://github.com/datasets/airport-codes")
-  
-
-
+  labs(title = "Number of flights out of Pitsburgh International Airport by destination", subtitle = "Jan - Apr 2018", x = NULL, y = NULL, caption = "Sources: Flights - WPRDC.org \n Airport Locations - https://github.com/datasets/airport-codes") +
+  coord_cartesian()
